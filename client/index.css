@@ -1,3 +1,26 @@
+* {
+    margin:0;
+}
+
 header {
+    padding: 20px;
     display: flex;
+    justify-content: space-between;
+    background-color: rgb(110, 140, 221);
+    color: white;
+}
+
+.title {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tabs{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tabs > h2 {
+    margin: 10px;
 }
