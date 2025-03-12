@@ -1,26 +1,89 @@
-* {
-    margin:0;
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+a:link, a:visited {
+    color:#e0e1dd;
+    text-decoration:none;
+    cursor:pointer;
+  }
+
+a:hover {
+    text-decoration:underline;
+
+}
+
+body {
+    background-color: #0d1b2a;
+}
+
+h1 {
+    font-family: 'Playball', cursive;
 }
 
 header {
-    padding: 20px;
+    display: flex;
+    background-color: #415a77;
+    justify-content: space-between;
+    color: #e0e1dd;
+    width: 100%;
+
+}
+
+.logo> {
+    display: inline;
+}
+
+.left-header>h1 {
+    display: inline;
+    margin-left: 38px;
+    font-size: 36px;
+}
+
+.right-header {
+    margin-left: auto;
+    margin-top: 38px;
+    margin-bottom: 38px;
+}
+
+.right-header>h2 {
+    display: inline;
+    margin-inline-start: 15px;
+    margin-right: 38px;
+}
+
+h2 {
+    font-family: 'Playball', cursive;
+    font-size: 36px;
+    color: #e0e1dd;
+}
+
+h3 {
+    font-family: 'Playball', cursive;
+    font-size: 36px;
+    color: #e0e1dd;
+    display: block;
+    margin-left: 75%;
+}
+
+.main-display {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(110, 140, 221);
-    color: white;
+    justify-content: space-around;
 }
 
-.title {
-    justify-content: flex-start;
-    align-items: center;
+.main-display > img {
+    width: 50%;
+    height: 55%;
+    margin-left: 5%;
 }
-
-.tabs{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.tabs > h2 {
-    margin: 10px;
+.shows {
+    width: 35%;
+    background-color: #1b263b;
+    
 }
