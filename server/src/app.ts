@@ -8,4 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 
+app.use('/api/members', memberRouter);
+
+
 export default app;
