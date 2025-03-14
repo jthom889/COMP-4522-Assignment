@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import memberRouter from '../controllers/members';
 
 const app = express();
 
