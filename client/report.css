@@ -17,13 +17,15 @@ body {
 header {
     display: flex;
     background-color: #415a77;
-    justify-content: flex-start; /* Align logo and title to the left */
+    /* justify-content: flex-start; Align logo and title to the left */
     align-items: center; 
     padding: 20px;
     width: 100%; /* Ensure the header spans the full width */
     position: relative;
     z-index: 1; /* Keep the header above the other content */
 }
+
+
 
 .logo {
     margin-right: 10px;
@@ -95,4 +97,10 @@ nav a:hover {
 .main-display p {
     color: #e0e1dd;
     margin: 0; 
+}
+
+.shows {
+    width: 60%;
+    height: 1000px;
+    background-color: #1b263b;
 }
