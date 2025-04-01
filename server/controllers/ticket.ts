@@ -2,11 +2,12 @@ import { Router, Request, Response } from 'express';
 import { DB } from '../utils/db';
 import { error } from '../utils/logger';
 
-const seatRouter = Router();
+const ticketRouter = Router();
 
-// Get all seats
-seatRouter.get('/', async (req: Request, res: Response) => {
-  const sql = 'SELECT * FROM seat';
+
+// Get all ticket
+ticketRouter.get('/', async (req: Request, res: Response) => {
+  const sql = 'SELECT * FROM ticket';
   DB.all(sql, [], (err, rows) => {
     if (err) {
       error(err.message);
@@ -17,4 +18,4 @@ seatRouter.get('/', async (req: Request, res: Response) => {
   });
 });
 
-export default seatRouter;
+export default ticketRouter;

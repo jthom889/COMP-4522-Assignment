@@ -5,7 +5,7 @@ import { error } from '../utils/logger';
 const expenseRouter = Router();
 
 expenseRouter.get('/', async (req: Request, res: Response) => {
-  const sql = 'SELECT * FROM advertiser';
+  const sql = 'SELECT * FROM expenses';
   DB.all(sql, [], (err, rows) => {
     if (err) {
       error(err.message);
