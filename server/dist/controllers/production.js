@@ -3,10 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const db_1 = require("../utils/db");
 const logger_1 = require("../utils/logger");
-const meetingRouter = (0, express_1.Router)();
-// Get all meetings
-meetingRouter.get('/', async (req, res) => {
-    const sql = 'SELECT * FROM meeting';
+const productionRouter = (0, express_1.Router)();
+// Get all productions
+productionRouter.get('/', async (req, res) => {
+    const sql = 'SELECT * FROM production';
     db_1.DB.all(sql, [], (err, rows) => {
         if (err) {
             (0, logger_1.error)(err.message);
@@ -17,9 +17,9 @@ meetingRouter.get('/', async (req, res) => {
         }
     });
 });
-// Get all meeting members
-meetingRouter.get('/members', async (req, res) => {
-    const sql = 'SELECT * FROM MeetingMember';
+// Get all produced
+productionRouter.get('/produced', async (req, res) => {
+    const sql = 'SELECT * FROM Produced';
     db_1.DB.all(sql, [], (err, rows) => {
         if (err) {
             (0, logger_1.error)(err.message);
@@ -30,18 +30,17 @@ meetingRouter.get('/members', async (req, res) => {
         }
     });
 });
-// Create a new meeting
-meetingRouter.post('/', async (req, res) => {
-    const { type, date, location } = req.params;
-    const sql = 'INSERT INTO meeting(Type, Date, Location) VALUES(?, ?, ?)';
-    db_1.DB.run(sql, [type, date, location], function (err) {
+// Get all roles
+productionRouter.get('/roles', async (req, res) => {
+    const sql = 'SELECT * FROM Role';
+    db_1.DB.all(sql, [], (err, rows) => {
         if (err) {
             (0, logger_1.error)(err.message);
-            res.status(500).send('Failed to insert advertisement');
+            res.status(500).send('Failed to execute query');
         }
         else {
-            res.status(201).send({ id: this.lastID });
+            res.send(rows);
         }
     });
 });
-exports.default = meetingRouter;
+exports.default = productionRouter;

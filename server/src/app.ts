@@ -8,11 +8,15 @@ import incomeRouter from '../controllers/income';
 import patronRouter from '../controllers/patron';
 import productionRouter from '../controllers/production';
 import sponsorRouter from '../controllers/sponsor';
+import expenseRouter from '../controllers/expenses';
+import playRouter from '../controllers/play';
+import seatRouter from '../controllers/seat'
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/api/members', memberRouter);
@@ -23,6 +27,9 @@ app.use('/api/income', incomeRouter);
 app.use('/api/patron', patronRouter);
 app.use('/api/production', productionRouter);
 app.use('/api/sponsor', sponsorRouter);
+app.use('/api/expenses', expenseRouter);
+app.use('/api/play', playRouter);
+app.use('/api/seat', seatRouter);
 
 
 export default app;
