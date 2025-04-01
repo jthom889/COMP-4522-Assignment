@@ -18,6 +18,20 @@ advertiserRouter.get('/', async (req: Request, res: Response) => {
   });
 });
 
+// Get all Advertiser Contributions
+advertiserRouter.get('/contributions', async (req: Request, res: Response) => {
+  const sql = 'SELECT * FROM AdvertiserContributions';
+  DB.all(sql, [], (err, rows) => {
+    if (err) {
+      error(err.message);
+      res.status(500).send('Failed to execute query');
+    } else {
+      res.send(rows);
+    }
+  });
+});
+
+
 // Create a new advertiser
 advertiserRouter.post('/', async (req: Request, res: Response) => {
   const { advertisementName, contact, email, phone } = req.params;
