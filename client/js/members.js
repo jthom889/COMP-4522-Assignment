@@ -12,6 +12,10 @@ async function fetchMembers() {
                     <p><strong>Name:</strong> ${member.FirstName}</p>
                     <p><strong>Email:</strong> ${member.Email}</p>
                     <p><strong>ID:</strong> ${member.MemberID}</p>
+                    <p><strong>Phone:</strong> ${member.Phone}</p>
+                    <p><strong>Address:</strong> ${member.Address}</p>
+                    <p><strong>Join Date:</strong> ${member.JoinDate}</p>
+                    <p><strong>Activity Status:</strong> ${member.ActivityStatus}</p>
                     <hr>
                 `;
                 membersListDiv.appendChild(memberDiv);
