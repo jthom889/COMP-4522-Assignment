@@ -5,7 +5,7 @@ import { error } from '../utils/logger';
 const patronRouter = Router();
 
 
-// Get all productions
+// Get all patrons
 patronRouter.get('/', async (req: Request, res: Response) => {
   const sql = 'SELECT * FROM Patron';
   DB.all(sql, [], (err, rows) => {
