@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../report.css" />
     <title>Bella SW Community</title>
+    <script src="../js/productions.js"></script>
 
 </head>
 
@@ -28,7 +29,19 @@
         <div class="main-display">
             <h3>Productions</h3>
             <div class="shows" id="production-list">
-                <script src="../js/productions.js"></script>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid white; padding: 8px; color: white;">Title</th>
+                            <th style="border: 1px solid white; padding: 8px; color: white;">Author</th>
+                            <th style="border: 1px solid white; padding: 8px; color: white;">Genre</th>
+                            <th style="border: 1px solid white; padding: 8px; color: white;">Number of Acts</th>
+                            <th style="border: 1px solid white; padding: 8px; color: white;">Play ID</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div id="pagination"></div>
             </div>
         </div>
     </main>
