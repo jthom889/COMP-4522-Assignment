@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../report.css" />
     <title>Bella SW Community</title>
-
 </head>
 
 <body>
@@ -18,8 +17,9 @@
     </header>
     <nav>
         <h2><a href="index.html">Home</a></h2>
-        <h2><a href="tickets.html">Tickets</a></h2>
         <h2><a href="finances.html">Finances</a></h2>
+        <h2><a href="tickets.html">Tickets</a></h2>
+        <h2><a href="patrons.html">Patrons</a></h2>
         <h2><a href="sponsors.html">Sponsors</a></h2>
         <h2><a href="members.html">Members</a></h2>
         <h2><a href="production.html">Productions</a></h2>
@@ -28,10 +28,27 @@
         <div class="main-display">
             <h3>Patrons</h3>
             <div class="shows" id="patrons-list">
-                <script src="../js/patrons.js"></script>
+                <div id="table-container">
+                    <table id="patrons-table">
+                        <thead>
+                            <tr>
+                                <th style="border: 1px solid white; padding: 8px; color: white;">PatronID</th>
+                                <th style="border: 1px solid white; padding: 8px; color: white;">First Name</th>
+                                <th style="border: 1px solid white; padding: 8px; color: white;">Last Name</th>
+                                <th style="border: 1px solid white; padding: 8px; color: white;">Email</th>
+                                <th style="border: 1px solid white; padding: 8px; color: white;">Phone Number</th>
+                                <th style="border: 1px solid white; padding: 8px; color: white;">Address</th>
+                                <th style="border: 1px solid white; padding: 8px; color: white;">Subscription</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div id="pagination"></div>
+                </div>
             </div>
         </div>
     </main>
+    <script src="../js/patrons.js"></script>
 </body>
 
 </html>
