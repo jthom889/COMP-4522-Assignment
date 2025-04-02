@@ -24,47 +24,84 @@
         <h2><a href="members.html">Members</a></h2>
         <h2><a href="production.html">Productions</a></h2>
         <h2><a href="ticketReport.html">Ticket Report</a></h2>
+        <h2><a href="castCrew.html">Cast & Crew</a></h2>
     </nav>
     <main>
         <div class="main-display">
             <h3>Members</h3>
             <div class="shows" id="members-list">
-                <table id="members-table">
-                    <thead>
-                        <tr>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Name</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Email</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">ID</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Phone</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Address</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Join Date</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Activity Status</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <div id="pagination-members"></div> <!-- Pagination for all members -->
+                <div id="all-members-container">
+                    <h4>All Members</h4>
+                    <button id="add-member-button">Add Member</button>
+                    <div class="table-wrapper"> <table id="members-table">
+                            <thead>
+                                <tr>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Name</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Email</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">ID</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Phone</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Address</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Join Date</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Activity Status</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div id="pagination-members"></div> </div>
 
-                <h3 style="text-align: center;" >Members with Unpaid Dues</h3>
-                <table id="members-due">
-                    <thead>
-                        <tr>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Name</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Email</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">ID</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Phone</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Address</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Join Date</th>
-                            <th style="border: 1px solid white; padding: 8px; color: white;">Activity Status</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <div id="pagination-dues"></div> <!-- Pagination for unpaid dues -->
+                <div id="unpaid-members-container">
+                    <h3 style="text-align: center;">Members with Unpaid Dues</h3>
+                    <div class="table-wrapper"> <table id="members-due">
+                            <thead>
+                                <tr>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Name</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Email</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">ID</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Phone</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Address</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Join Date</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Activity Status</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div id="pagination-dues"></div> </div>
 
-            </div>
-            <div>
-
+                <div id="add-member-form" style="display: none;">
+                    <h4>Add New Member</h4>
+                    <form id="member-form">
+                        <label for="firstName">First Name:</label><input type="text" id="firstName" name="firstName" required><br>
+                        <label for="lastName">Last Name:</label><input type="text" id="lastName" name="lastName" required><br>
+                        <label for="email">Email:</label><input type="email" id="email" name="email" required><br>
+                        <label for="phone">Phone:</label><input type="text" id="phone" name="phone"><br>
+                        <label for="address">Address:</label><input type="text" id="address" name="address"><br>
+                        <label for="joinDate">Join Date:</label><input type="date" id="joinDate" name="joinDate"><br>
+                        <label for="activityStatus">Activity Status:</label><input type="text" id="activityStatus" name="activityStatus"><br>
+                        <label for="paidDues">Paid Dues:</label><input type="checkbox" id="paidDues" name="paidDues"><br>
+                        <button type="submit">Save Member</button>
+                        <button type="button" id="cancel-add">Cancel</button>
+                    </form>
+                </div>
+                <div id="update-member-form" style="display: none;">
+                    <h4>Update Member</h4>
+                    <form id="update-member-form-fields">
+                        <input type="hidden" id="update-memberId" name="memberId">
+                        <label for="update-firstName">First Name:</label><input type="text" id="update-firstName" name="firstName" required><br>
+                        <label for="update-lastName">Last Name:</label><input type="text" id="update-lastName" name="lastName" required><br>
+                        <label for="update-email">Email:</label><input type="email" id="update-email" name="email" required><br>
+                        <label for="update-phone">Phone:</label><input type="text" id="update-phone" name="phone"><br>
+                        <label for="update-address">Address:</label><input type="text" id="update-address" name="address"><br>
+                        <label for="update-joinDate">Join Date:</label><input type="date" id="update-joinDate" name="joinDate"><br>
+                        <label for="update-activityStatus">Activity Status:</label><input type="text" id="update-activityStatus" name="activityStatus"><br>
+                        <label for="update-paidDues">Paid Dues:</label><input type="checkbox" id="update-paidDues" name="paidDues"><br>
+                        <button type="submit">Update Member</button>
+                        <button type="button" id="cancel-update">Cancel</button>
+                    </form>
+                </div>
             </div>
         </div>
     </main>

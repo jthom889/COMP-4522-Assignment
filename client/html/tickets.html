@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../tickets.css" />
+    <link rel="stylesheet" href="../report.css" /> 
     <title>Bella SW Community</title>
 </head>
 
@@ -24,6 +24,7 @@
         <h2><a href="members.html">Members</a></h2>
         <h2><a href="production.html">Productions</a></h2>
         <h2><a href="ticketReport.html">Ticket Report</a></h2>
+        <h2><a href="castCrew.html">Cast & Crew</a></h2>
     </nav>
     <main>
         <div class="main-display">
@@ -54,15 +55,13 @@
                     <div class="form-group">
                         <label for="row">Select Seat Row:</label>
                         <select name="row[]">
-                            <!-- Dynamically filled in with rows (A-Z) -->
-                        </select>
+                            </select>
                     </div>
 
                     <div class="form-group">
                         <label for="seat">Select Seat Number:</label>
                         <select name="seat[]">
-                            <!-- Dynamically filled in with seats (1-50) -->
-                        </select>
+                            </select>
                     </div>
                 </div>
 
@@ -105,7 +104,7 @@
         seatSelects.forEach(addSeatOptions);
 
         // Add new seat group when clicking "Add a seat +"
-        document.querySelector(".add-row").addEventListener('click', function () {
+        document.querySelector(".add-row").addEventListener('click', function() {
             const seatsContainer = document.getElementById('seats-container');
 
             // Create a new seat group
