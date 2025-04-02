@@ -10,7 +10,8 @@ import productionRouter from '../controllers/production';
 import sponsorRouter from '../controllers/sponsor';
 import expenseRouter from '../controllers/expenses';
 import playRouter from '../controllers/play';
-import seatRouter from '../controllers/seat'
+import seatRouter from '../controllers/seat';
+import ticketRouter from '../controllers/ticket';
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use('/api/sponsor', sponsorRouter);
 app.use('/api/expenses', expenseRouter);
 app.use('/api/play', playRouter);
 app.use('/api/seat', seatRouter);
+app.use('/api/ticket', ticketRouter);
 
 
 export default app;
