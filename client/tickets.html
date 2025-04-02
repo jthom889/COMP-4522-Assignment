@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./tickets.css" />
+    <title>Bella SW Community</title>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <img class="logo" src="./theatre.png">
+            <h1>Bella SW Community Theatre</h1>
+        </div>
+    </header>
+    <nav>
+        <h2><a href="index.html">Home</a></h2>
+        <h2><a href="finances.html">Finances</a></h2>
+        <h2><a href="patrons.html">Patrons</a></h2>
+        <h2><a href="sponsors.html">Sponsors</a></h2>
+        <h2><a href="members.html">Members</a></h2>
+        <h2><a href="production.html">Productions</a></h2>
+    </nav>
+    <main>
+        <div class="main-display">
+            <h3>Buy your Tickets!</h3>
+
+            <form action="submit_seat_selection.php" method="POST">
+
+                <div class="form-group">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="play">Choose a play:</label>
+                    <select id="play" name="play">
+                        <option value="play1">Play 1</option>
+                        <option value="play2">Play 2</option>
+                        <option value="play3">Play 3</option>
+                    </select>
+                </div>
+
+                <div id="seats-container" class="seats-container">
+                    <div class="form-group">
+                        <label for="row">Select Seat Row:</label>
+                        <select name="row[]">
+                            <!-- Dynamically filled in with rows (A-Z) -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seat">Select Seat Number:</label>
+                        <select name="seat[]">
+                            <!-- Dynamically filled in with seats (1-50) -->
+                        </select>
+                    </div>
+                </div>
+
+                <h4 class="add-row">Add a seat +</h4>
+                <br>
+
+                <div class="button-container">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Function to create row options dynamically (A-Z)
+        function addRowOptions(selectElement) {
+            for (let i = 65; i <= 90; i++) {
+                const option = document.createElement("option");
+                option.value = String.fromCharCode(i);
+                option.textContent = String.fromCharCode(i);
+                selectElement.appendChild(option);
+            }
+        }
+
+        // Function to create seat options dynamically (1-50)
+        function addSeatOptions(selectElement) {
+            for (let i = 1; i <= 50; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                selectElement.appendChild(option);
+            }
+        }
+
+        // Add options to the first set of row and seat selects
+        const rowSelects = document.querySelectorAll("select[name='row[]']");
+        rowSelects.forEach(addRowOptions);
+
+        const seatSelects = document.querySelectorAll("select[name='seat[]']");
+        seatSelects.forEach(addSeatOptions);
+
+        // Add new seat group when clicking "Add a seat +"
+        document.querySelector(".add-row").addEventListener('click', function () {
+            const seatsContainer = document.getElementById('seats-container');
+
+            // Create a new seat group
+            const newSeatGroup = document.createElement('div');
+            newSeatGroup.classList.add('form-group');
+
+            // Add the row and seat selects dynamically
+            const rowSelect = document.createElement("select");
+            rowSelect.name = "row[]";
+            addRowOptions(rowSelect); // Add row options dynamically
+
+            const seatSelect = document.createElement("select");
+            seatSelect.name = "seat[]";
+            addSeatOptions(seatSelect); // Add seat options dynamically
+
+            // Append the selects to the new seat group
+            newSeatGroup.appendChild(rowSelect);
+            newSeatGroup.appendChild(seatSelect);
+
+            // Append the new seat group to the container
+            seatsContainer.appendChild(newSeatGroup);
+        });
+    </script>
+</body>
+
+</html>
