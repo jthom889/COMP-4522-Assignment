@@ -36,7 +36,11 @@ async function fetchFinance() {
             expenses.forEach(expense => {
                 const expensesDiv = document.createElement('div');
                 expensesDiv.innerHTML = `
-                    <p><strong>Name:</strong> ${expense.Advertiser}</p>
+                    <p><strong>ExpenseID:</strong> ${expense.ExpenseID}</p>
+                    <p><strong>ProductionID:</strong> ${expense.ProductionID}</p>
+                    <p><strong>Description:</strong> ${expense.Description}</p>
+                    <p><strong>Cost:</strong> ${expense.Cost}</p>
+                    <p><strong>Date:</strong> ${expense.Date}</p>
                     
                     <hr>
                 `;
