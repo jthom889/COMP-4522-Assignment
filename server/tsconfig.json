@@ -97,5 +97,16 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "target": "ES2017", // or "ES6" or "ESNext"
+  "module": "commonjs", // or "es6" for modules in the browser
+  "lib": [
+    "ES2017",
+    "DOM"
+  ], // or ["ES6", "DOM"] or ["ESNext", "DOM"]
+  "outDir": "./dist", // Where your compiled JavaScript files will go
+  "esModuleInterop": true, // Recommended for compatibility
+  "forceConsistentCasingInFileNames": true,
+  "strict": true,
+  "skipLibCheck": true
 }
