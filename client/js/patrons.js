@@ -41,16 +41,19 @@ window.displayPatrons = function(page) {
     }
 
     const pageCount = Math.ceil(allPatrons.length / itemsPerPage);
-    let paginationLinks = '';
-    for (let i = 1; i <= pageCount; i++) {
-        paginationLinks += `<button onclick="displayPatrons(${i})">${i}</button>`;
+    if (pageCount > 1) { // Only render pagination if more than one page
+        let paginationLinks = '';
+        for (let i = 1; i <= pageCount; i++) {
+            paginationLinks += `<button onclick="displayPatrons(${i})">${i}</button>`;
+        }
+        paginationDiv.innerHTML = paginationLinks;
+    } else {
+        paginationDiv.innerHTML = ''; // Clear pagination if only one page
     }
-    paginationDiv.innerHTML = paginationLinks;
 
-    // Calculate and set table-container height (flexbox handles the rest)
     const rowHeight = 40;
     const headerHeight = 40;
-    document.getElementById('table-container').style.height = (itemsPerPage * rowHeight + headerHeight + 60) + 'px'; //added 60px
+    document.getElementById('table-container').style.height = (itemsPerPage * rowHeight + headerHeight + 60) + 'px';
 };
 
 fetchPatrons();

@@ -7,7 +7,7 @@ html, body {
     height: 100%; 
     overflow-x: hidden;
     display: flex;
-    flex-direction: column; /* Stack header, sidebar, and main content vertically */
+    flex-direction: column;
 }
 
 body {
@@ -17,15 +17,12 @@ body {
 header {
     display: flex;
     background-color: #415a77;
-    /* justify-content: flex-start; Align logo and title to the left */
     align-items: center; 
     padding: 20px;
-    width: 100%; /* Ensure the header spans the full width */
+    width: 100%;
     position: relative;
-    z-index: 1; /* Keep the header above the other content */
+    z-index: 1;
 }
-
-
 
 .logo {
     margin-right: 10px;
@@ -46,33 +43,33 @@ h2, h3 {
 .main-display {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Start from the top */
-    align-items: center; /* Horizontally center the content */
+    justify-content: flex-start;
+    align-items: center;
     padding: 20px;
-    width: 100%; /* Ensure content fills available space */
+    width: 100%;
 }
 
 main {
-    flex-grow: 1; /* Main content should take up the remaining space */
+    flex-grow: 1;
     padding: 20px;
-    margin-left: 250px; /* Push the main content to the right, leaving space for the sidebar */
-    margin-top: 20px; /* Add space from the header */
+    margin-left: 250px;
+    margin-top: 20px;
     display: flex;
-    justify-content: center; /* Horizontally center the content */
+    justify-content: center;
 }
 
 nav {
     background-color: #415a77;
-    width: 200px; /* Sidebar width */
-    height: 100vh; /* Sidebar spans full height of the viewport */
+    width: 200px;
+    height: 100vh;
     padding: 20px;
     padding-top: 250px;
-    position: fixed; /* Sidebar is fixed on the left */
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
-    z-index: 0; /* Ensure the sidebar is behind the header */
+    z-index: 0;
 }
 
 nav h2 {
@@ -80,7 +77,7 @@ nav h2 {
 }
 
 nav a:link, nav a:visited {
-    color: #e0e1dd; /* Same color for both visited and unvisited links */
+    color: #e0e1dd;
     text-decoration: none;
     cursor: pointer;
 }
@@ -101,11 +98,12 @@ nav a:hover {
 
 .shows {
     width: 80%;
-    height: 60%;
     background-color: #1b263b;
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack tables and pagination vertically */
+    padding: 20px; /* Add padding to the shows div */
 }
 
-/* Add these styles to your report.css */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -119,7 +117,7 @@ th, td {
     color: white;
 }
 
-#pagination button {
+#pagination button, #income-pagination button, #expenses-pagination button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -132,21 +130,22 @@ th, td {
     cursor: pointer;
 }
 
-#table-container {
+#income-table-container, #expenses-table-container, #table-container {
     overflow: hidden;
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack table and pagination vertically */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow the containers to grow and take up space */
 }
 
-#patrons-table {
+#income-table, #expenses-table, #members-table, #patrons-table {
     width: 100%;
-    flex-grow: 1; /* Allow table to take up available space */
+    flex-grow: 1;
 }
 
-#pagination {
+#pagination, #income-pagination, #expenses-pagination {
     margin-top: 10px;
     padding-bottom: 20px;
-    text-align: center; /* Center pagination buttons */
+    text-align: center;
 }
 
 main {

@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../report.css" />
     <title>Bella SW Community</title>
-
 </head>
-
 <body>
     <header>
         <div class="header">
@@ -31,15 +28,46 @@
             <div class="shows">
                 <div id="income-list">
                     <h3>Income</h3>
-                    <script src="../js/finance.js"></script>
+                    <div id="income-table-container">
+                        <table id="income-table">
+                            <thead>
+                                <tr>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">IncomeID</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Source</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Amount</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Date</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">SponsorID</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">TicketID</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">AdvertiserID</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">SubID</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <div id="income-pagination"></div>
+                    </div>
                 </div>
                 <div id="expenses-list">
                     <h3>Expenses</h3>
-
+                    <div id="expenses-table-container">
+                        <table id="expenses-table">
+                            <thead>
+                                <tr>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">ExpenseID</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">ProductionID</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Description</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Cost</th>
+                                    <th style="border: 1px solid white; padding: 8px; color: white;">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <div id="expenses-pagination"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+    <script src="../js/finance.js"></script>
 </body>
-
 </html>
