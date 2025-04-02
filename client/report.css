@@ -117,7 +117,7 @@ th, td {
     color: white;
 }
 
-#pagination button, #income-pagination button, #expenses-pagination button {
+#pagination button, #income-pagination button, #expenses-pagination button, button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -142,7 +142,7 @@ th, td {
     flex-grow: 1;
 }
 
-#pagination, #income-pagination, #expenses-pagination {
+#pagination, #income-pagination, #expenses-pagination, #pagination-dues, #pagination-members {
     margin-top: 10px;
     padding-bottom: 20px;
     text-align: center;
