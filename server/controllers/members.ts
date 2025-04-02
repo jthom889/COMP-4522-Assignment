@@ -43,6 +43,19 @@ memberRouter.get('/roles', async (req: Request, res: Response) => {
   })
 })
 
+// Get all member with roles and tasks
+memberRouter.get('/cast', async (req: Request, res: Response) => {
+  const sql = 'SELECT * FROM member INNER JOIN memberrole ON member.memberId = memberrole.memberId INNER JOIN role ON memberrole.roleid = role.roleid;'
+  DB.all(sql, [], (err, rows) => {
+    if (err) {
+      error(err.message);
+      res.status(500).send('Failed to execute query');
+    } else {
+      res.send(rows);
+    }
+  })
+})
+
 // Get all Member Dues
 memberRouter.get('/roles', async (req: Request, res: Response) => {
   const sql = 'SELECT * from MemberDues';
