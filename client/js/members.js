@@ -160,7 +160,7 @@ window.displayUnpaidMembers = function(page) {
 // Function to add a new member
 async function addMember(member) {
     try {
-        const response = await fetch('http://localhost:3000/api/members', { // POST /
+        const response = await fetch('http://localhost:3000/api/members', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -168,12 +168,8 @@ async function addMember(member) {
             body: JSON.stringify(member)
         });
         handleErrors(response);
-        const newMember = await response.json();
 
-        // **Crucial Change:** Update the newMember object with the ID from the server
-        member.MemberID = newMember.id; // Assuming your server returns the new ID in 'id'
-
-        allMembers.push(member); // Push the *original* member object, now with the server-generated ID
+        allMembers.push(member);
         unpaidMembers = allMembers.filter(m => m.PaidDues === "FALSE" || m.PaidDues === false);
         displayMembers(1);
         displayUnpaidMembers(1);
@@ -188,7 +184,7 @@ async function addMember(member) {
 async function deleteMember(memberId) {
     if (confirm('Are you sure you want to delete this member?')) {
         try {
-            const response = await fetch(`http://localhost:3000/api/members/${memberId}`, { // DELETE /:id
+            const response = await fetch(`http://localhost:3000/api/members/${memberId}`, {
                 method: 'DELETE'
             });
             handleErrors(response);
@@ -210,7 +206,7 @@ async function deleteMember(memberId) {
 // Function to update a member
 async function updateMember(member) {
     try {
-        const response = await fetch(`http://localhost:3000/api/members/${member.MemberID}`, { // PUT /:id
+        const response = await fetch(`http://localhost:3000/api/members/${member.MemberID}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -267,6 +263,7 @@ function hideUpdateMemberForm() {
 // Function to validate form data
 function validateMemberForm(memberData) {
     const errors = [];
+    if (!memberData.MemberID) errors.push('Member ID is required.');
     if (!memberData.FirstName) errors.push('First Name is required.');
     if (!memberData.LastName) errors.push('Last Name is required.');
     if (!memberData.Email) errors.push('Email is required.');
@@ -281,6 +278,7 @@ cancelUpdateButton.addEventListener('click', hideUpdateMemberForm);
 
 memberForm.addEventListener('submit', function(event) {
     event.preventDefault();
+    const memberId = document.getElementById('memberId').value; // Get Member ID
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
@@ -291,6 +289,7 @@ memberForm.addEventListener('submit', function(event) {
     const paidDues = document.getElementById('paidDues').checked; // Get boolean value
 
     const newMember = {
+        MemberID: memberId, // Include Member ID in the newMember object
         FirstName: firstName,
         LastName: lastName,
         Email: email,
