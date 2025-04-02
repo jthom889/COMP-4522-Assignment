@@ -100,7 +100,45 @@ nav a:hover {
 }
 
 .shows {
-    width: 60%;
-    height: 1000px;
+    width: 80%;
+    height: 60%;
     background-color: #1b263b;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: left;
+    color: white;
+}
+
+#pagination button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#table-container {
+    overflow: hidden; /* Remove scrollbars */
+}
+
+#members-table {
+    width: 100%;
+}
+
+#pagination {
+    margin-top: 10px;
 }
